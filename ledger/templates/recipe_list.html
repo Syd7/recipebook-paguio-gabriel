@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Recipe List{% endblock %}
+{% block content %}
+    <ul>
+            <div><a href="{% url 'ledger:recipe_1' %}">Recipe 1</a></div>
+            <div><a href="{% url 'ledger:recipe_2' %}">Recipe 2</a></div>
+    </ul>
+{% endblock %}
