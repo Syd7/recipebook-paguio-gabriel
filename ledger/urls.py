@@ -7,4 +7,3 @@ urlpatterns = [
     path('recipes/list/', recipe_list, name='recipe_list'),
     path('recipe/<int:id>/', recipe_details, name='recipe_detail'),
 ]
-
