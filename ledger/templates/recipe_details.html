@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{name}}{% endblock %}
+{% block title %}{{recipe.name}}{% endblock %}
 
 
 {% block content %}
 <div>
-    {{name}}
+{{recipe.name}}
 </div>
     <a><br>Ingredients:</a>
     <ul>
-        {% for ingredient in ingredients %}
+        {% for ingredient in recipe.ingredients.all %}
             <li>
-            {{ingredient.quantity}} of {{ingredient.name}}
+            {{ingredient.quantity}} of {{ingredient.ingredient.name}}
             </li>
         {% endfor %}
     </ul>

@@ -2,8 +2,10 @@
 {% load static %}
 {% block title %}Recipe List{% endblock %}
 {% block content %}
+    {% for recipe in recipes %}
     <ul>
-            <div><a href="{% url 'ledger:recipe_1' %}">Recipe 1</a></div>
-            <div><a href="{% url 'ledger:recipe_2' %}">Recipe 2</a></div>
+            <div><a href="{% url 'ledger:recipe_detail' recipe.id %}">{{recipe.name}}</a></div>
     </ul>
+    {% endfor %}
+
 {% endblock %}
