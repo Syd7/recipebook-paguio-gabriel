@@ -7,7 +7,19 @@
 </head>
 <body>
     <div id="content">
-        Recipe Book
+        <header>
+            <h1>Recipe Book</h1>
+            <h2> {% block heading %} {% endblock %}
+            </h2>
+            <nav>
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% endif %}
+            </nav>
+        </header>
         {% block content%}{% endblock %}
     </div>
     {% block scripts %}{% endblock %}
