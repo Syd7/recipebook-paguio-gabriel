@@ -9,12 +9,16 @@ class IngredientAdmin(admin.ModelAdmin):
 
     model = Ingredient
 
+class RecipeImageInline(admin.StackedInline):
+    """Create inline admin for RecipeImage"""
+
+    model = RecipeImage
 
 class RecipeAdmin(admin.ModelAdmin):
     """Create admin for Recipe."""
 
     model = Recipe
-    inlines = [RecipeImageInline]
+    inlines = [RecipeImageInline,]
 
 
 class RecipeIngredientAdmin(admin.ModelAdmin):
@@ -23,10 +27,6 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
 
 
-class RecipeImageInline(admin.StackedInline):
-    """Create inline admin for RecipeImage"""
-
-    model = RecipeImage
 
 
 # Register your models here.

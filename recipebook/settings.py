@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Manila'
-    
+
 USE_I18N = True
 
 USE_TZ = True
@@ -124,7 +124,13 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATICFILE_DIRS = [
+    BASE_DIR/'static',
+]
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
