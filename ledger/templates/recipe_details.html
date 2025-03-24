@@ -10,6 +10,9 @@
 <p>Created on:{{recipe.created_on}}</p>
 <p>Last updated:{{recipe.last_update_on}}</p>
 </div>
+    <b>Image:
+        <img src = "{{image.image.url}}" alt = "{{image.description}}">
+    </b>
     <a><br>Ingredients:</a>
     <ul>
         {% for ingredient in recipe.ingredients.all %}

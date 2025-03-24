@@ -49,3 +49,14 @@ class RecipeIngredient(models.Model):
         Ingredient, on_delete=models.CASCADE, related_name="recipe")
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="ingredients")
+
+
+class RecipeImage(models.Model):
+    """Create RecipeImage with appropriate fields."""
+
+    image = models.ImageField(upload_to='images/', null=False)
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name='image')
+
+    

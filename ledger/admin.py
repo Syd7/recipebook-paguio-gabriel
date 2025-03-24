@@ -1,25 +1,32 @@
 """Create needed models and their admin."""
 
 from django.contrib import admin
-from .models import Ingredient, Recipe, RecipeIngredient
+from .models import Ingredient, Recipe, RecipeIngredient, RecipeImage
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    """Create admin for IngredientAdmin."""
+    """Create admin for Ingredient."""
 
     model = Ingredient
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    """Create admin for RecipeAdmin."""
+    """Create admin for Recipe."""
 
     model = Recipe
+    inlines = [RecipeImageInline]
 
 
 class RecipeIngredientAdmin(admin.ModelAdmin):
-    """Create admin for RecipeIngredientAdmin."""
+    """Create admin for RecipeIngredient."""
 
     model = RecipeIngredient
+
+
+class RecipeImageInline(admin.StackedInline):
+    """Create inline admin for RecipeImage"""
+
+    model = RecipeImage
 
 
 # Register your models here.
