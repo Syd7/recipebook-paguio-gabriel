@@ -8,5 +8,7 @@
             <div><a href="{% url 'ledger:recipe_detail' recipe.id %}">{{recipe.name}}</a></div>
     </ul>
     {% endfor %}
-    <div><a href="{% url 'ledger:add_recipe' %}"></a></div>
+    {% if request.user.is_authenticated %}
+    <div><a href ="{% url 'ledger:add_recipe' %}"> Add New Recipe </a></div>
+    {% endif %}
 {% endblock %}

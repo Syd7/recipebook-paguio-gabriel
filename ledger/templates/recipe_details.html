@@ -1,24 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{recipe.name}}{% endblock %}
-{% block heading %}Page: Recipe Details: {{recipe.name}}{% endblock %}
+{% block title %}{{ recipe.name }}{% endblock %}
+{% block heading %}Page: Recipe Details: {{ recipe.name }}{% endblock %}
 
 {% block content %}
 <div>
-{{recipe.name}}
-<p>Created on:{{recipe.created_on}}</p>
-<p>Last updated:{{recipe.last_update_on}}</p>
+    <p>{{ recipe.name }}</p>
+    <p>Author: {{recipe.author.username}} </p>
+    <p>Created on: {{ recipe.created_on }}</p>
+    <p>Last updated: {{ recipe.last_update_on }}</p>
 </div>
-    <b>Image:
-        <img src = "{{image.image.url}}" alt = "{{image.description}}">
-    </b>
-    <a><br>Ingredients:</a>
-    <ul>
-        {% for ingredient in recipe.ingredients.all %}
-            <li>
-            {{ingredient.quantity}} of {{ingredient.ingredient.name}}
-            </li>
-        {% endfor %}
-    </ul>
+
+<h3>Recipe Image:</h3>
+{% with recipe.images.last as img %}
+    {% if img %}
+        <img src="{{ img.image.url }}" alt="{{ img.description }}">
+    {% else %}
+        <p>No images uploaded yet.</p>
+    {% endif %}
+{% endwith %}
+
+<br>
+<a href="{% url 'ledger:add_image' pk=recipe.pk %}"> Add/Edit Image </a>
+
+<h3>Ingredients:</h3>
+<ul>
+    {% if img %}
+    {% for ingredient in recipe.ingredients.all %}
+        <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li>
+    {% endfor %}
+    {% else %}
+    <a>There are no Ingredients Listed, please list them through the use of the admin panel.</a>
+    {% endif %}
+</ul>
 {% endblock %}
