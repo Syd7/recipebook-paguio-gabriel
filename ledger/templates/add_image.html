@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <h2>Add/Edit Image to {{recipe.name}}</h2>
+    <h2>Add Image to {{recipe.name}}</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}

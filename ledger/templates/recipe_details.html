@@ -12,15 +12,12 @@
     <p>Last updated: {{ recipe.last_update_on }}</p>
 </div>
 
-<h3>Recipe Image:</h3>
-{% with recipe.images.last as img %}
-    {% if img %}
+<h3>Recipe Images:</h3>
+{% for img in recipe.images.all %}
+    {% if img.recipe.id == recipe.id %}
         <img src="{{ img.image.url }}" alt="{{ img.description }}">
-    {% else %}
-        <p>No images uploaded yet.</p>
     {% endif %}
-{% endwith %}
-
+{% endfor %}
 <br>
 <a href="{% url 'ledger:add_image' pk=recipe.pk %}"> Add/Edit Image </a>
 
