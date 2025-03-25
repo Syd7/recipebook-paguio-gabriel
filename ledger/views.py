@@ -5,7 +5,6 @@ from django.shortcuts import render
 from .models import Recipe
 from .forms import RecipeImageForm, RecipeForm
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
 from accounts.models import Profile
 
 
